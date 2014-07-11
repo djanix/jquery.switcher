@@ -1,0 +1,71 @@
+/* jquery-switcher - 1.0.0
+* Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
+
+
+.switcher {
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 26px;
+  padding: 2px;
+  text-transform: uppercase;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  width: 80px;
+}
+.switcher input {
+  display: none;
+}
+.switcher .content {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.switcher .text {
+  cursor: default;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 50%;
+}
+.switcher .textYes {
+  color: #fff;
+  float: left;
+}
+.switcher .textNo {
+  color: #9d9d9d;
+  float: right;
+}
+.switcher .slider {
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 2px 1px #ccc;
+  box-shadow: 0 0 2px 1px #ccc;
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  width: 50%;
+  z-index: 2;
+}
+.switcher.is-active {
+  background-color: #519b20;
+}
+.switcher.is-active .slider {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.switcher.is-disabled {
+  opacity: 0.4;
+}

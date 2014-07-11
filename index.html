@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jquery Switcher - Janic Beauchemin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./dist/switcher.min.css"/>
+</head>
+
+<body>
+    <h1>Jquery Switcher</h1>
+
+    <div class="switcher"
+         data-class="switcher"
+         data-name="switch"
+         data-selected="false"
+         data-language="en"
+         data-disabled="false">
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="./dist/switcher.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.switcher').switcher({
+//				class: "switcher",
+//				name: "switch",
+//				selected: false,
+//				language: "en",
+//				disabled: false
+            });
+        });
+    </script>
+</body>
+</html>
