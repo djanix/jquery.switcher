@@ -1,14 +1,22 @@
+$colorActive: #519b20;
+$colorSecondary: #fff;
+$colorBorder: #dfdfdf;
+$disabledOpacity: 0.4;
+$fontSize: 12px;
+$fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+
 .switcher {
-    background-color: #fff;
-    border: 1px solid #dfdfdf;
+    background-color: $colorSecondary;
+    border: 1px solid $colorBorder;
     border-radius: 4px;
     display: inline-block;
-    font-size: 12px;
+    font-family: $fontFamily;
+    font-size: $fontSize;
     line-height: 26px;
     padding: 2px;
     text-transform: uppercase;
     transition: background-color 0.3s;
-    width: 80px;
+    min-width: 80px;
 
     input {
         display: none;
@@ -23,25 +31,24 @@
         cursor: default;
         overflow: hidden;
         text-align: center;
-        text-overflow: ellipsis;
         white-space: nowrap;
         width: 50%;
     }
 
     .textYes {
-        color: #fff;
+        color: $colorSecondary;
         float: left;
     }
 
     .textNo {
-        color: #9d9d9d;
+        color: darken($colorBorder, 25%);
         float: right;
     }
 
     .slider {
-        background-color: #fff;
+        background-color: $colorSecondary;
         border-radius: 4px;
-        box-shadow: 0 0 2px 1px #ccc;
+        box-shadow: 0 0 2px 1px $colorBorder;
         height: 26px;
         left: 0;
         position: absolute;
@@ -53,7 +60,7 @@
     }
 
     &.is-active {
-        background-color: #519b20;
+        background-color: $colorActive;
 
         .slider {
             transform: translateX(100%);
@@ -61,6 +68,6 @@
     }
 
     &.is-disabled {
-        opacity: 0.4;
+        opacity: $disabledOpacity;
     }
 }

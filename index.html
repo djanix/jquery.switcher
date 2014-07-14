@@ -24,18 +24,22 @@
          data-disabled="false">
     </div>
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="./dist/switcher.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="./dist/switcher.js"></script>
 
     <script type="text/javascript">
         $(function () {
-            $('.switcher').switcher({
+            var $switcher = $('.switcher');
+            $switcher.switcher({
 //				class: "switcher",
 //				name: "switch",
 //				selected: false,
 //				language: "en",
 //				disabled: false
             });
+
+//            $switcher.switcher('setValue', true);
+//            var value = $switcher.switcher('getValue');
         });
     </script>
 </body>
