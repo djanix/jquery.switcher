@@ -13,9 +13,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		config: config,
 		pkg: grunt.file.readJSON('package.json'),
-		banner: '/* <%= pkg.name %> - <%= pkg.version %>\n' +
-			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-			'* Copyright (c) <%= grunt.template.today("yyyy-mm-dd") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n\n',
+		banner: '<%= config.banner %>',
 		autoprefixer: {
 			single_file: {
 				options: {
