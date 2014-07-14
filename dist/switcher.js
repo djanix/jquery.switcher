@@ -18,17 +18,16 @@
         name: "switch",
         selected: false,
         language: "en",
-        disabled: false
-    };
-
-    var copy = {
-        en: {
-            yes: 'yes',
-            no: 'no'
-        },
-        fr: {
-            yes: 'oui',
-            no: 'non'
+        disabled: false,
+        copy: {
+            en: {
+                yes: 'yes',
+                no: 'no'
+            },
+            fr: {
+                yes: 'oui',
+                no: 'non'
+            }
         }
     };
 
@@ -49,32 +48,36 @@
         bindEvents: function (el, settings) {
             if (settings.disabled) { return; }
 
+            var self = this;
             var input = $(el).find('input');
 
             $(el).on('click', function () {
-                $(el).toggleClass('is-active');
-                input.prop("checked", !input.prop("checked"));
+                self.setValue(!input.prop("checked"));
             });
         },
 
         buildHtml: function (el, settings) {
-            $(el).addClass(settings.class);
+            var self = this;
+            var $el = $(el);
 
-            $(el).html(
+            $el.addClass(settings.class);
+            $el.html(
                 '<input type="checkbox" name="' + settings.name + '" value="' + settings.name + '">' +
                 '<div class="content clearfix">' +
                     '<div class="slider"></div>' +
-                    '<span class="text textYes">' + copy[settings.language].yes + '</span>' +
-                    '<span class="text textNo">' + copy[settings.language].no + '</span>' +
+                    '<span class="text textYes"></span>' +
+                    '<span class="text textNo"></span>' +
                 '</div>'
             );
 
+            self.setLanguage(settings.language);
+
             if (settings.selected) {
-                this.setValue(true);
+                self.setValue(true);
             }
 
             if (settings.disabled) {
-                this.setDisabled(true);
+                self.setDisabled(true);
             }
         },
 
@@ -83,18 +86,22 @@
                 return console.log('The parameter need to be true or false as a boolean');
             }
 
-            $(this.element).find('input').prop("checked", val);
-            this.settings.selected = val;
+            var self = this;
+            var $el = $(self.element);
+
+            self.settings.selected = val;
+            $el.find('input').prop("checked", val);
 
             if (val === true) {
-                $(this.element).addClass('is-active');
+                $el.addClass('is-active');
             } else {
-                $(this.element).removeClass('is-active');
+                $el.removeClass('is-active');
             }
         },
 
-        getValue: function () {
-            return this.settings.selected;
+        getValue: function (callback) {
+            var self = this;
+            return callback(self.settings.selected);
         },
 
         setDisabled: function (val) {
@@ -102,25 +109,41 @@
                 return console.log('The parameter need to be true or false as a boolean');
             }
 
-            this.settings.disabled = val;
+            var self = this;
+            var $el = $(self.element);
+
+            self.settings.disabled = val;
 
             if (val === true) {
-                $(this.element).addClass('is-disabled');
+                $el.addClass('is-disabled');
             } else {
-                $(this.element).removeClass('is-disabled');
+                $el.removeClass('is-disabled');
             }
         },
 
-        getDisabled: function () {
-            return this.settings.disabled;
+        getDisabled: function (callback) {
+            var self = this;
+            return callback(self.settings.disabled);
         },
 
-        setLanguage: function () {
+        setLanguage: function (language) {
+            var self = this;
+            var $el = $(self.element);
 
+            self.settings.language = language;
+
+            $el.find('.textYes').text(self.settings.copy[language].yes);
+            $el.find('.textNo').text(self.settings.copy[language].no);
         },
 
-        getLanguage: function () {
+        getLanguage: function (callback) {
+            var self = this;
+            return callback(self.settings.language);
+        },
 
+        importLanguage: function (languageObj) {
+            var self = this;
+            self.settings.copy = languageObj;
         }
     });
 
