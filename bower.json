@@ -1,7 +1,7 @@
 {
-  "name": "jquery-switcher",
+  "name": "jquery.switcher",
   "version": "1.0.0",
-  "homepage": "http://djanix.github.io/jquery-switcher/",
+  "homepage": "http://djanix.github.io/jquery.switcher/",
   "docs": "http://amsul.github.io/pickadate.js",
   "authors": [
     "Janic Beauchemin <info@janicbeauchemin.com>"
@@ -10,7 +10,7 @@
   "main": "dist/switcher.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/djanix/jquery-switcher.git"
+    "url": "https://github.com/djanix/jquery.switcher.git"
   },
   "keywords": [
     "switcher",

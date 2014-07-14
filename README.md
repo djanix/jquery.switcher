@@ -1,4 +1,4 @@
-jquery-switcher
+jquery.switcher
 ===============
 
 Custom checkbox in jquery
