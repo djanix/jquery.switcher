@@ -3,6 +3,12 @@ jquery.switcher
 
 Custom checkbox in jquery
 
+### How to get it
+
+    git clone git://github.com/amsul/pickadate.js.git
+or
+    bower install jquery.switcher
+
 ### What to include in your html
 ```html
 <link rel="stylesheet" href="path/to/switcher.min.css">
