@@ -16,21 +16,14 @@
 <body>
     <h1>Jquery Switcher</h1>
 
-    <div class="switcher"
-         data-class="switcher"
-         data-name="switch"
-         data-selected="false"
-         data-language="en"
-         data-disabled="false">
-    </div>
+    <div class="switcher switcher"></div>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="./dist/switcher.min.js"></script>
 
     <script type="text/javascript">
         $(function () {
-            var $switcher = $('.switcher');
-            $switcher.switcher();
+            $('.switcher').switcher();
         });
     </script>
 </body>
