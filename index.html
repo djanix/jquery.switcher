@@ -34,7 +34,153 @@
           <h1>
 <a name="jquery-switcher" class="anchor" href="#jquery-switcher"><span class="octicon octicon-link"></span></a>jquery-switcher</h1>
 
-<p>custom checkbox in jquery</p>
+<p>Custom checkbox in jquery</p>
+
+<h3>
+<a name="what-to-include-in-your-html" class="anchor" href="#what-to-include-in-your-html"><span class="octicon octicon-link"></span></a>What to include in your html</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"path/to/switcher.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-1.11.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"path/to/switcher.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h3>
+<a name="how-to-initialize-the-plugin" class="anchor" href="#how-to-initialize-the-plugin"><span class="octicon octicon-link"></span></a>How to initialize the plugin</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="params" class="anchor" href="#params"><span class="octicon octicon-link"></span></a>Params</h3>
+
+<table>
+<thead><tr>
+<th>Param</th>
+<th>Default value</th>
+<th>Info</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>class</td>
+<td>'switcher'</td>
+<td>class added to the html element. Useful if you want to customize it with css</td>
+</tr>
+<tr>
+<td>name</td>
+<td>'switch'</td>
+<td>name of the input</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>false</td>
+<td>if the input is checked or not</td>
+</tr>
+<tr>
+<td>language</td>
+<td>'en'</td>
+<td>default language used for the yes/no texts</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>false</td>
+<td>if the input is disabled</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>{obj}</td>
+<td>json object with all the languages. By default, it only contain fr/en</td>
+</tr>
+</tbody>
+</table><h4>
+<a name="you-can-change-the-parameters-in-the-javascript-when-instantiating-the-plugin" class="anchor" href="#you-can-change-the-parameters-in-the-javascript-when-instantiating-the-plugin"><span class="octicon octicon-link"></span></a>You can change the parameters in the javascript when instantiating the plugin</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">({</span>
+    <span class="kr">class</span><span class="o">:</span> <span class="s2">"switcher"</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">"switch"</span><span class="p">,</span>
+    <span class="nx">selected</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">language</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
+    <span class="nx">disabled</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="you-can-also-change-it-in-the-html" class="anchor" href="#you-can-also-change-it-in-the-html"><span class="octicon octicon-link"></span></a>You can also change it in the html</h4>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"switcher"</span>
+     <span class="na">data-class=</span><span class="s">"switcher"</span>
+     <span class="na">data-name=</span><span class="s">"switch"</span>
+     <span class="na">data-selected=</span><span class="s">"false"</span>
+     <span class="na">data-language=</span><span class="s">"en"</span>
+     <span class="na">data-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="public-methods" class="anchor" href="#public-methods"><span class="octicon octicon-link"></span></a>Public methods</h3>
+
+<h4>
+<a name="set-value" class="anchor" href="#set-value"><span class="octicon octicon-link"></span></a>Set value</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'setValue'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="get-value" class="anchor" href="#get-value"><span class="octicon octicon-link"></span></a>Get value</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'getValue'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">switcherValue</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="set-disabled" class="anchor" href="#set-disabled"><span class="octicon octicon-link"></span></a>Set disabled</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'setDisabled'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="get-disabled" class="anchor" href="#get-disabled"><span class="octicon octicon-link"></span></a>Get disabled</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'getDisabled'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">disabled</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">disabledValue</span> <span class="o">=</span> <span class="nx">disabled</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="set-language" class="anchor" href="#set-language"><span class="octicon octicon-link"></span></a>Set language</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'setLanguage'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="get-language" class="anchor" href="#get-language"><span class="octicon octicon-link"></span></a>Get language</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'getLanguage'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">language</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">languageValue</span> <span class="o">=</span> <span class="nx">language</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="import-language-json-file" class="anchor" href="#import-language-json-file"><span class="octicon octicon-link"></span></a>Import language json file</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.element'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'setLanguage'</span><span class="p">,</span> <span class="p">{</span><span class="nx">jsonObject</span><span class="p">});</span>
+</pre></div>
+
+<ul>
+<li>the json object need to follow this structure:</li>
+</ul><div class="highlight highlight-javascript"><pre><span class="p">{</span>
+    <span class="nx">en</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">yes</span><span class="o">:</span> <span class="s1">'yes'</span><span class="p">,</span>
+        <span class="nx">no</span><span class="o">:</span> <span class="s1">'no'</span>
+    <span class="p">},</span>
+    <span class="nx">fr</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">yes</span><span class="o">:</span> <span class="s1">'oui'</span><span class="p">,</span>
+        <span class="nx">no</span><span class="o">:</span> <span class="s1">'non'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
         </section>
 
         <footer>
