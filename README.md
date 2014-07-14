@@ -21,13 +21,13 @@ $(function () {
 ### Params
 
 | Param         | Default value | Info                                                                         |
-| ------------- |:-------------:| ----------------------------------------------------------------------------:|
-| class         | switcher      | class added to the html element. Useful if you want to customize it with css |
-| name          | switch        | name of the input                                                            |
+| ------------- | ------------- | -----------------------------------------------------------------------------|
+| class         | 'switcher'    | class added to the html element. Useful if you want to customize it with css |
+| name          | 'switch'      | name of the input                                                            |
 | selected      | false         | if the input is checked or not                                               |
-| language      | en            | default language used for the yes/no texts                                   |
+| language      | 'en'          | default language used for the yes/no texts                                   |
 | disabled      | false         | if the input is disabled                                                     |
-| copy          | obj           | json object with all the languages. By default, it only contain fr/en        |
+| copy          | {obj}         | json object with all the languages. By default, it only contain fr/en        |
 
 #### You can change the parameters in the javascript when instantiating the plugin
 
