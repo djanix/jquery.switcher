@@ -11,6 +11,8 @@ or
 
     bower install jquery.switcher
 
+see live example [here](https://cdn.rawgit.com/djanix/jquery.switcher/6537d5219f5be1144440fe0d79c9cac58cf5dfe5/index.html)
+
 ### What to include in your html
 ```html
 <link rel="stylesheet" href="path/to/switcher.min.css">
