@@ -2,6 +2,7 @@ jquery.switcher
 ===============
 
 Custom checkbox in jquery
+
 see live example [here](https://cdn.rawgit.com/djanix/jquery.switcher/6537d5219f5be1144440fe0d79c9cac58cf5dfe5/index.html)
 
 ### How to get it
