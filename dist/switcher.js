@@ -7,7 +7,7 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.0.1
+/* jquery.switcher - 1.1.1
  * Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
