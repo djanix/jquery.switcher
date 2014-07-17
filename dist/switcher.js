@@ -15,7 +15,6 @@
 
     var defaults = {
         class: "switcher",
-        name: "switch",
         selected: false,
         language: "en",
         disabled: false,
@@ -32,7 +31,8 @@
     };
 
     function Plugin(element, options) {
-        this.element = element;
+        this.input = element;
+        this.container = null;
         this.settings = $.extend({}, defaults, $(element).data(), options);
         this._defaults = defaults;
         this._name = pluginName;
@@ -41,28 +41,16 @@
 
     $.extend(Plugin.prototype, {
         init: function () {
-            this.buildHtml(this.element, this.settings);
-            this.bindEvents(this.element, this.settings);
+            this.buildHtml(this.input, this.settings);
+            this.bindEvents(this.container, this.settings);
         },
 
-        bindEvents: function (el, settings) {
-            if (settings.disabled) { return; }
-
+        buildHtml: function (input, settings) {
             var self = this;
-            var input = $(el).find('input');
+            var $input = $(input);
 
-            $(el).on('click', function () {
-                self.setValue(!input.prop("checked"));
-            });
-        },
-
-        buildHtml: function (el, settings) {
-            var self = this;
-            var $el = $(el);
-
-            $el.addClass(settings.class);
-            $el.html(
-                '<input type="checkbox" name="' + settings.name + '" value="' + settings.name + '">' +
+            $input.wrap('<div class="' + settings.class + '"></div>');
+            $input.after(
                 '<div class="content clearfix">' +
                     '<div class="slider"></div>' +
                     '<span class="text textYes"></span>' +
@@ -70,15 +58,37 @@
                 '</div>'
             );
 
+            this.container = $($input).parent('.' + settings.class)[0];
+
             self.setLanguage(settings.language);
+            self.setValue(settings.selected);
+            self.setDisabled(settings.disabled);
+        },
 
-            if (settings.selected) {
+        bindEvents: function (container, settings) {
+            var self = this;
+            var $container = $(container);
+            var $input =  $container.find('input');
+
+            $container.on('click', function () {
+                if (settings.disabled) { return; }
+
+                if ($input.attr('type') == 'radio') {
+                    self.setValue(true);
+                } else {
+                    self.setValue(!$input.prop("checked"));
+                }
+            });
+
+            $container.on('swipeleft', function () {
+                if (settings.disabled) { return; }
+                self.setValue(false);
+            });
+
+            $container.on('swiperight', function () {
+                if (settings.disabled) { return; }
                 self.setValue(true);
-            }
-
-            if (settings.disabled) {
-                self.setDisabled(true);
-            }
+            });
         },
 
         setValue: function (val) {
@@ -87,15 +97,33 @@
             }
 
             var self = this;
-            var $el = $(self.element);
+            var $input = $(self.input);
+            var $container = $(self.container);
 
             self.settings.selected = val;
-            $el.find('input').prop("checked", val);
+            $input.prop("checked", val);
 
-            if (val === true) {
-                $el.addClass('is-active');
+            if ($input.attr('type') == 'radio') {
+                var name = $input.attr('name');
+                var $inputGroup = $('input[name="' + name + '"]');
+                var $containerGroup = $inputGroup.parent('.' + self.settings.class);
+
+                $containerGroup.removeClass('is-active');
+                $inputGroup.prop("checked", false);
+
+                if (val === true) {
+                    $container.addClass('is-active');
+                    $input.prop("checked", true);
+                } else {
+                    $containerGroup.first().addClass('is-active');
+                    $inputGroup.first().prop("checked", true);
+                }
             } else {
-                $el.removeClass('is-active');
+                if (val === true) {
+                    $container.addClass('is-active');
+                } else {
+                    $container.removeClass('is-active');
+                }
             }
         },
 
@@ -110,14 +138,14 @@
             }
 
             var self = this;
-            var $el = $(self.element);
+            var $container = $(self.container);
 
             self.settings.disabled = val;
 
             if (val === true) {
-                $el.addClass('is-disabled');
+                $container.addClass('is-disabled');
             } else {
-                $el.removeClass('is-disabled');
+                $container.removeClass('is-disabled');
             }
         },
 
@@ -128,12 +156,12 @@
 
         setLanguage: function (language) {
             var self = this;
-            var $el = $(self.element);
+            var $container = $(self.container);
 
             self.settings.language = language;
 
-            $el.find('.textYes').text(self.settings.copy[language].yes);
-            $el.find('.textNo').text(self.settings.copy[language].no);
+            $container.find('.textYes').text(self.settings.copy[language].yes);
+            $container.find('.textNo').text(self.settings.copy[language].no);
         },
 
         getLanguage: function (callback) {
@@ -151,11 +179,11 @@
         // http://stackoverflow.com/questions/12880256/jquery-plugin-creation-and-public-facing-methods
         var args = Array.prototype.slice.call(arguments, 1);
         this.each(function () {
-            var item = $(this);
-            var instance = item.data("plugin_" + pluginName);
+            var $item = $(this);
+            var instance = $item.data("plugin_" + pluginName);
 
             if (!instance) {
-                item.data("plugin_" + pluginName, new Plugin(this, options));
+                $item.data("plugin_" + pluginName, new Plugin(this, options));
             } else {
                 if(typeof options === 'string') {
                     instance[options].apply(instance, args);
@@ -165,4 +193,64 @@
 
         return this;
     };
+
+//  SWIPE EVENTS
+//  -----------------------------------------------------------------------
+    var startX = 0;
+    var startY = 0;
+    var moving = false;
+    var threshold = 30;
+
+    function onTouchEnd() {
+        this.removeEventListener('touchmove', onTouchMove);
+        this.removeEventListener('touchend', onTouchEnd);
+        moving = false;
+    }
+
+    function onTouchMove(e) {
+        e.preventDefault();
+
+        if (moving) {
+            var x = e.touches[0].pageX;
+            var y = e.touches[0].pageY;
+            var dx = startX - x;
+            var dy = startY - y;
+            var direction = null;
+
+            if(Math.abs(dx) >= threshold) {
+                direction = dx > 0 ? 'left' : 'right'
+            } else if (Math.abs(dy) >= threshold) {
+                direction = dy > 0 ? 'down' : 'up'
+            }
+
+            if(direction) {
+                onTouchEnd.call(this);
+                $(this).trigger('swipe', direction).trigger('swipe' + direction);
+            }
+        }
+    }
+
+    function onTouchStart(e) {
+        if (e.touches.length == 1) {
+            startX = e.touches[0].pageX;
+            startY = e.touches[0].pageY;
+            moving = true;
+            this.addEventListener('touchmove', onTouchMove, false);
+            this.addEventListener('touchend', onTouchEnd, false);
+        }
+    }
+
+    function setup() {
+        this.addEventListener && this.addEventListener('touchstart', onTouchStart, false);
+    }
+
+    $.event.special.swipe = { setup: setup };
+
+    $.each(['left', 'up', 'down', 'right'], function () {
+        $.event.special['swipe' + this] = { setup: function(){
+            $(this).on('swipe', $.noop);
+        } };
+    });
+//  END SWIPE EVENTS
+//  -----------------------------------------------------------------------
 })(jQuery, window, document);

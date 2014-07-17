@@ -16,14 +16,14 @@
 <body>
     <h1>Jquery Switcher</h1>
 
-    <div class="switcher switcher"></div>
+    <input type="checkbox" name="switchName" value="switchValue" />
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="./dist/switcher.min.js"></script>
+    <script src="./dist/switcher.js"></script>
 
     <script type="text/javascript">
         $(function () {
-            $('.switcher').switcher();
+            var switcher = $('input').switcher();
         });
     </script>
 </body>

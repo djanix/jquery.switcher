@@ -1,7 +1,7 @@
 jquery.switcher
 ===============
 
-Custom checkbox in jquery
+Custom checkbox / radio button in jquery
 
 see live example [here](https://cdn.rawgit.com/djanix/jquery.switcher/6537d5219f5be1144440fe0d79c9cac58cf5dfe5/index.html)
 
@@ -22,10 +22,13 @@ or
 ```
 
 ### How to initialize the plugin
+```html
+<input type="checkbox" name="switchName" value="switchValue" />
+```
 
 ```javascript
 $(function () {
-    $('.element').switcher();
+    var switcherEl = $('input').switcher();
 });
 ```
 
@@ -34,7 +37,6 @@ $(function () {
 | Param         | Default value | Info                                                                         |
 | ------------- | ------------- | -----------------------------------------------------------------------------|
 | class         | 'switcher'    | class added to the html element. Useful if you want to customize it with css |
-| name          | 'switch'      | name of the input                                                            |
 | selected      | false         | if the input is checked or not                                               |
 | language      | 'en'          | default language used for the yes/no texts                                   |
 | disabled      | false         | if the input is disabled                                                     |
@@ -43,9 +45,8 @@ $(function () {
 #### You can change the parameters in the javascript when instantiating the plugin
 
 ```javascript
-$('.element').switcher({
+var switcherEl = $('input').switcher({
     class: "switcher",
-    name: "switch",
     selected: false,
     language: "en",
     disabled: false
@@ -55,56 +56,54 @@ $('.element').switcher({
 #### You can also change it in the html
 
 ```html
-<div class="switcher"
-     data-class="switcher"
-     data-name="switch"
-     data-selected="false"
-     data-language="en"
-     data-disabled="false">
-</div>
+<input type="checkbox" name="switchName" value="switchValue"
+    data-class="switcher"
+    data-selected="false"
+    data-language="en"
+    data-disabled="false" />
 ```
 
 ### Public methods
 
 #### Set value
 ```javascript
-$('.element').switcher('setValue', true);
+switcherEl.switcher('setValue', true);
 ```
 
 #### Get value
 ```javascript
-$('.element').switcher('getValue', function (value) {
+switcherEl.switcher('getValue', function (value) {
   var switcherValue = val;
 });
 ```
 
 #### Set disabled
 ```javascript
-$('.element').switcher('setDisabled', true);
+switcherEl.switcher('setDisabled', true);
 ```
 
 #### Get disabled
 ```javascript
-$('.element').switcher('getDisabled', function (disabled) {
+switcherEl.switcher('getDisabled', function (disabled) {
   var disabledValue = disabled;
 });
 ```
 
 #### Set language
 ```javascript
-$('.element').switcher('setLanguage', true);
+switcherEl.switcher('setLanguage', true);
 ```
 
 #### Get language
 ```javascript
-$('.element').switcher('getLanguage', function (language) {
+switcherEl.switcher('getLanguage', function (language) {
   var languageValue = language;
 });
 ```
 
 #### Import language json file
 ```javascript
-$('.element').switcher('setLanguage', {jsonObject});
+switcherEl.switcher('setLanguage', {jsonObject});
 ```
 
 * the json object need to follow this structure:
