@@ -1,4 +1,4 @@
-jquery.switcher v1.1.1
+jquery.switcher v1.1.2
 ===============
 
 Custom checkbox / radio button in jquery
@@ -34,13 +34,13 @@ $(function () {
 
 ### Params
 
-| Param         | Default value | Info                                                                         |
-| ------------- | ------------- | -----------------------------------------------------------------------------|
-| class         | 'switcher'    | class added to the html element. Useful if you want to customize it with css |
-| selected      | false         | if the input is checked or not                                               |
-| language      | 'en'          | default language used for the yes/no texts                                   |
-| disabled      | false         | if the input is disabled                                                     |
-| copy          | {obj}         | json object with all the languages. By default, it only contain fr/en        |
+| Param         | Default value | Info                                                                                          |
+| ------------- | ------------- | ----------------------------------------------------------------------------------------------|
+| class         | 'switcher'    | class added to the html element. Useful if you want to customize it with css                  |
+| selected      | false         | if the input is checked or not. If nothing is specified, it will take the input checked value |
+| language      | 'en'          | default language used for the yes/no texts                                                    |
+| disabled      | false         | if the input is disabled                                                                      |
+| copy          | {obj}         | json object with all the languages. By default, it only contain fr/en                         |
 
 #### You can change the parameters in the javascript when instantiating the plugin
 
