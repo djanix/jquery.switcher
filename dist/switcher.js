@@ -7,7 +7,7 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.1.1
+/* jquery.switcher - 1.1.2
  * Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
@@ -15,7 +15,7 @@
 
     var defaults = {
         class: "switcher",
-        selected: false,
+        selected: null,
         language: "en",
         disabled: false,
         copy: {
@@ -92,13 +92,21 @@
         },
 
         setValue: function (val) {
-            if (typeof val != 'boolean') {
-                return console.log('The parameter need to be true or false as a boolean');
-            }
-
             var self = this;
             var $input = $(self.input);
             var $container = $(self.container);
+
+            if (val == null) {
+                if ($input.attr('type') == 'radio') {
+                    val = typeof $input.filter(':checked').val()!=='undefined';
+                } else {
+                    val = $input.prop('checked');
+                }
+            }
+
+            if (typeof val != 'boolean') {
+                return console.log('The parameter need to be true or false as a boolean');
+            }
 
             self.settings.selected = val;
             $input.prop("checked", val);
@@ -108,15 +116,12 @@
                 var $inputGroup = $('input[name="' + name + '"]');
                 var $containerGroup = $inputGroup.parent('.' + self.settings.class);
 
-                $containerGroup.removeClass('is-active');
-                $inputGroup.prop("checked", false);
-
                 if (val === true) {
+                    $containerGroup.removeClass('is-active');
+                    $inputGroup.prop("checked", false);
+
                     $container.addClass('is-active');
                     $input.prop("checked", true);
-                } else {
-                    $containerGroup.first().addClass('is-active');
-                    $inputGroup.first().prop("checked", true);
                 }
             } else {
                 if (val === true) {

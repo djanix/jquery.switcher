@@ -56,172 +56,172 @@
 </head>
 
 <body>
-    <h1>Jquery Switcher</h1>
+<h1>Jquery Switcher</h1>
 
-    <div class="style style1">
-        <h2>Style #1 (default style):</h2>
+<div class="style style1">
+    <h2>Style #1 (default style):</h2>
 
-        <div class="checkbox">
-            <h3>Checkbox</h3>
-            <input type="checkbox" name="switchCheck1" value="switchCheck1" />
+    <div class="checkbox">
+        <h3>Checkbox</h3>
+        <input type="checkbox" name="switchCheck1" value="switchCheck1" />
 
-            <h4>Controls:</h4>
-            <button class="btnCheck">check</button>
-            <button class="btnUncheck">uncheck</button>
-            <br/>
-            <button class="btnEnabled">enable</button>
-            <button class="btnDisabled">disable</button>
-            <br/>
-            <button class="btnFrench">french</button>
-            <button class="btnEnglish">english</button>
-            <br/>
+        <h4>Controls:</h4>
+        <button class="btnCheck">check</button>
+        <button class="btnUncheck">uncheck</button>
+        <br/>
+        <button class="btnEnabled">enable</button>
+        <button class="btnDisabled">disable</button>
+        <br/>
+        <button class="btnFrench">french</button>
+        <button class="btnEnglish">english</button>
+        <br/>
 
-            <h4>Get values:</h4>
-            <button class="btnGetCheck">checked</button>
-            <button class="btnGetDisable">disabled</button>
-            <button class="btnGetLanguage">language</button>
-        </div>
-
-        <div class="radio">
-            <h3>Radio</h3>
-            <input type="radio" name="switchRadio1" value="one">
-            <input type="radio" name="switchRadio1" value="two">
-            <input type="radio" name="switchRadio1" value="three">
-
-            <h4>Controls:</h4>
-            <button class="btnCheck1">check1</button>
-            <button class="btnCheck2">check2</button>
-            <button class="btnCheck3">check3</button>
-            <br/>
-            <button class="btnEnabled">enable</button>
-            <button class="btnDisabled">disable</button>
-            <br/>
-            <button class="btnFrench">french</button>
-            <button class="btnEnglish">english</button>
-            <br/>
-
-            <h4>Get values:</h4>
-            <button class="btnGetCheck">checked</button>
-            <button class="btnGetDisable">disabled</button>
-            <button class="btnGetLanguage">language</button>
-        </div>
+        <h4>Get values:</h4>
+        <button class="btnGetCheck">checked</button>
+        <button class="btnGetDisable">disabled</button>
+        <button class="btnGetLanguage">language</button>
     </div>
 
-    <div class="style style2">
-        <h2>Style #2:</h2>
+    <div class="radio">
+        <h3>Radio</h3>
+        <input type="radio" name="switchRadio1" value="one">
+        <input type="radio" name="switchRadio1" value="two">
+        <input type="radio" name="switchRadio1" value="three">
 
-        <div class="checkbox">
-            <h3>Checkbox</h3>
-            <input type="checkbox" name="switchCheck2" value="switchCheck2" />
-        </div>
+        <h4>Controls:</h4>
+        <button class="btnCheck1">check1</button>
+        <button class="btnCheck2">check2</button>
+        <button class="btnCheck3">check3</button>
+        <br/>
+        <button class="btnEnabled">enable</button>
+        <button class="btnDisabled">disable</button>
+        <br/>
+        <button class="btnFrench">french</button>
+        <button class="btnEnglish">english</button>
+        <br/>
 
-        <div class="radio">
-            <h3>Radio</h3>
-            <input type="radio" name="switchRadio2" value="one">
-            <input type="radio" name="switchRadio2" value="two">
-            <input type="radio" name="switchRadio2" value="three">
-        </div>
+        <h4>Get values:</h4>
+        <button class="btnGetCheck">checked</button>
+        <button class="btnGetDisable">disabled</button>
+        <button class="btnGetLanguage">language</button>
+    </div>
+</div>
+
+<div class="style style2">
+    <h2>Style #2:</h2>
+
+    <div class="checkbox">
+        <h3>Checkbox</h3>
+        <input type="checkbox" name="switchCheck2" value="switchCheck2" />
     </div>
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="./dist/switcher.js"></script>
+    <div class="radio">
+        <h3>Radio</h3>
+        <input type="radio" name="switchRadio2" value="one">
+        <input type="radio" name="switchRadio2" value="two">
+        <input type="radio" name="switchRadio2" value="three">
+    </div>
+</div>
 
-    <script type="text/javascript">
-        $(function () {
-            var switcher = $('input').switcher();
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./dist/switcher.js"></script>
 
-            var checkbox = $('[name="switchCheck1"]');
-            $('.checkbox .btnCheck').on('click', function () {
-                checkbox.switcher('setValue', true);
-            });
+<script type="text/javascript">
+    $(function () {
+        var switcher = $('input').switcher();
 
-            $('.checkbox .btnUncheck').on('click', function () {
-                checkbox.switcher('setValue', false);
-            });
+        var checkbox = $('[name="switchCheck1"]');
+        $('.checkbox .btnCheck').on('click', function () {
+            checkbox.switcher('setValue', true);
+        });
 
-            $('.checkbox .btnEnabled').on('click', function () {
-                checkbox.switcher('setDisabled', false);
-            });
+        $('.checkbox .btnUncheck').on('click', function () {
+            checkbox.switcher('setValue', false);
+        });
 
-            $('.checkbox .btnDisabled').on('click', function () {
-                checkbox.switcher('setDisabled', true);
-            });
+        $('.checkbox .btnEnabled').on('click', function () {
+            checkbox.switcher('setDisabled', false);
+        });
 
-            $('.checkbox .btnFrench').on('click', function () {
-                checkbox.switcher('setLanguage', 'fr');
-            });
+        $('.checkbox .btnDisabled').on('click', function () {
+            checkbox.switcher('setDisabled', true);
+        });
 
-            $('.checkbox .btnEnglish').on('click', function () {
-                checkbox.switcher('setLanguage', 'en');
-            });
+        $('.checkbox .btnFrench').on('click', function () {
+            checkbox.switcher('setLanguage', 'fr');
+        });
 
-            $('.checkbox .btnGetCheck').on('click', function () {
-                checkbox.switcher('getValue', function (value) {
-                    alert('checked value: ' + value);
-                });
-            });
+        $('.checkbox .btnEnglish').on('click', function () {
+            checkbox.switcher('setLanguage', 'en');
+        });
 
-            $('.checkbox .btnGetDisable').on('click', function () {
-                checkbox.switcher('getDisabled', function (value) {
-                    alert('disabled value: ' + value);
-                });
-            });
-
-            $('.checkbox .btnGetLanguage').on('click', function () {
-                checkbox.switcher('getLanguage', function (value) {
-                    alert('language value: ' + value);
-                });
-            });
-
-
-            var radio = $('[name="switchRadio1"]');
-            $('.radio .btnCheck1').on('click', function () {
-                radio.eq(0).switcher('setValue', true);
-            });
-
-            $('.radio .btnCheck2').on('click', function () {
-                radio.eq(1).switcher('setValue', true);
-            });
-
-            $('.radio .btnCheck3').on('click', function () {
-                radio.eq(2).switcher('setValue', true);
-            });
-
-            $('.radio .btnEnabled').on('click', function () {
-                radio.switcher('setDisabled', false);
-            });
-
-            $('.radio .btnDisabled').on('click', function () {
-                radio.switcher('setDisabled', true);
-            });
-
-            $('.radio .btnFrench').on('click', function () {
-                radio.switcher('setLanguage', 'fr');
-            });
-
-            $('.radio .btnEnglish').on('click', function () {
-                radio.switcher('setLanguage', 'en');
-            });
-
-            $('.radio .btnGetCheck').on('click', function () {
-                radio.switcher('getValue', function (value) {
-//                    get value on radio doesn't work for now
-                    alert('checked value: ' + value);
-                });
-            });
-
-            $('.radio .btnGetDisable').on('click', function () {
-                radio.eq(0).switcher('getDisabled', function (value) {
-                    alert('disabled value: ' + value);
-                });
-            });
-
-            $('.radio .btnGetLanguage').on('click', function () {
-                radio.eq(0).switcher('getLanguage', function (value) {
-                    alert('language value: ' + value);
-                });
+        $('.checkbox .btnGetCheck').on('click', function () {
+            checkbox.switcher('getValue', function (value) {
+                alert('checked value: ' + value);
             });
         });
-    </script>
+
+        $('.checkbox .btnGetDisable').on('click', function () {
+            checkbox.switcher('getDisabled', function (value) {
+                alert('disabled value: ' + value);
+            });
+        });
+
+        $('.checkbox .btnGetLanguage').on('click', function () {
+            checkbox.switcher('getLanguage', function (value) {
+                alert('language value: ' + value);
+            });
+        });
+
+
+        var radio = $('[name="switchRadio1"]');
+        $('.radio .btnCheck1').on('click', function () {
+            radio.eq(0).switcher('setValue', true);
+        });
+
+        $('.radio .btnCheck2').on('click', function () {
+            radio.eq(1).switcher('setValue', true);
+        });
+
+        $('.radio .btnCheck3').on('click', function () {
+            radio.eq(2).switcher('setValue', true);
+        });
+
+        $('.radio .btnEnabled').on('click', function () {
+            radio.switcher('setDisabled', false);
+        });
+
+        $('.radio .btnDisabled').on('click', function () {
+            radio.switcher('setDisabled', true);
+        });
+
+        $('.radio .btnFrench').on('click', function () {
+            radio.switcher('setLanguage', 'fr');
+        });
+
+        $('.radio .btnEnglish').on('click', function () {
+            radio.switcher('setLanguage', 'en');
+        });
+
+        $('.radio .btnGetCheck').on('click', function () {
+            radio.switcher('getValue', function (value) {
+//                    get value on radio doesn't work for now
+                alert('checked value: ' + value);
+            });
+        });
+
+        $('.radio .btnGetDisable').on('click', function () {
+            radio.eq(0).switcher('getDisabled', function (value) {
+                alert('disabled value: ' + value);
+            });
+        });
+
+        $('.radio .btnGetLanguage').on('click', function () {
+            radio.eq(0).switcher('getLanguage', function (value) {
+                alert('language value: ' + value);
+            });
+        });
+    });
+</script>
 </body>
 </html>
