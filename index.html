@@ -10,13 +10,118 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="./dist/switcher.min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./dist/switcher.css"/>
+
+    <style>
+        html {
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 35px;
+            font-weight: normal;
+        }
+
+        h2, h4 {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin: 0.5em 0;
+        }
+
+        .style {
+            border-bottom: 3px solid #519b20;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 1024px;
+            padding-bottom: 30px;
+        }
+
+        .checkbox,
+        .radio  {
+            display: inline-block;
+            width: 45%;
+        }
+
+        button {
+            line-height: 1.6em;
+            margin: 3px;
+            width: 110px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Jquery Switcher</h1>
 
-    <input type="checkbox" name="switchName" value="switchValue" />
+    <div class="style style1">
+        <h2>Style #1 (default style):</h2>
+
+        <div class="checkbox">
+            <h3>Checkbox</h3>
+            <input type="checkbox" name="switchCheck1" value="switchCheck1" />
+
+            <h4>Controls:</h4>
+            <button class="btnCheck">check</button>
+            <button class="btnUncheck">uncheck</button>
+            <br/>
+            <button class="btnEnabled">enable</button>
+            <button class="btnDisabled">disable</button>
+            <br/>
+            <button class="btnFrench">french</button>
+            <button class="btnEnglish">english</button>
+            <br/>
+
+            <h4>Get values:</h4>
+            <button class="btnGetCheck">checked</button>
+            <button class="btnGetDisable">disabled</button>
+            <button class="btnGetLanguage">language</button>
+        </div>
+
+        <div class="radio">
+            <h3>Radio</h3>
+            <input type="radio" name="switchRadio1" value="one">
+            <input type="radio" name="switchRadio1" value="two">
+            <input type="radio" name="switchRadio1" value="three">
+
+            <h4>Controls:</h4>
+            <button class="btnCheck1">check1</button>
+            <button class="btnCheck2">check2</button>
+            <button class="btnCheck3">check3</button>
+            <br/>
+            <button class="btnEnabled">enable</button>
+            <button class="btnDisabled">disable</button>
+            <br/>
+            <button class="btnFrench">french</button>
+            <button class="btnEnglish">english</button>
+            <br/>
+
+            <h4>Get values:</h4>
+            <button class="btnGetCheck">checked</button>
+            <button class="btnGetDisable">disabled</button>
+            <button class="btnGetLanguage">language</button>
+        </div>
+    </div>
+
+    <div class="style style2">
+        <h2>Style #2:</h2>
+
+        <div class="checkbox">
+            <h3>Checkbox</h3>
+            <input type="checkbox" name="switchCheck2" value="switchCheck2" />
+        </div>
+
+        <div class="radio">
+            <h3>Radio</h3>
+            <input type="radio" name="switchRadio2" value="one">
+            <input type="radio" name="switchRadio2" value="two">
+            <input type="radio" name="switchRadio2" value="three">
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="./dist/switcher.js"></script>
@@ -24,6 +129,98 @@
     <script type="text/javascript">
         $(function () {
             var switcher = $('input').switcher();
+
+            var checkbox = $('[name="switchCheck1"]');
+            $('.checkbox .btnCheck').on('click', function () {
+                checkbox.switcher('setValue', true);
+            });
+
+            $('.checkbox .btnUncheck').on('click', function () {
+                checkbox.switcher('setValue', false);
+            });
+
+            $('.checkbox .btnEnabled').on('click', function () {
+                checkbox.switcher('setDisabled', false);
+            });
+
+            $('.checkbox .btnDisabled').on('click', function () {
+                checkbox.switcher('setDisabled', true);
+            });
+
+            $('.checkbox .btnFrench').on('click', function () {
+                checkbox.switcher('setLanguage', 'fr');
+            });
+
+            $('.checkbox .btnEnglish').on('click', function () {
+                checkbox.switcher('setLanguage', 'en');
+            });
+
+            $('.checkbox .btnGetCheck').on('click', function () {
+                checkbox.switcher('getValue', function (value) {
+                    alert('checked value: ' + value);
+                });
+            });
+
+            $('.checkbox .btnGetDisable').on('click', function () {
+                checkbox.switcher('getDisabled', function (value) {
+                    alert('disabled value: ' + value);
+                });
+            });
+
+            $('.checkbox .btnGetLanguage').on('click', function () {
+                checkbox.switcher('getLanguage', function (value) {
+                    alert('language value: ' + value);
+                });
+            });
+
+
+            var radio = $('[name="switchRadio1"]');
+            $('.radio .btnCheck1').on('click', function () {
+                radio.eq(0).switcher('setValue', true);
+            });
+
+            $('.radio .btnCheck2').on('click', function () {
+                radio.eq(1).switcher('setValue', true);
+            });
+
+            $('.radio .btnCheck3').on('click', function () {
+                radio.eq(2).switcher('setValue', true);
+            });
+
+            $('.radio .btnEnabled').on('click', function () {
+                radio.switcher('setDisabled', false);
+            });
+
+            $('.radio .btnDisabled').on('click', function () {
+                radio.switcher('setDisabled', true);
+            });
+
+            $('.radio .btnFrench').on('click', function () {
+                radio.switcher('setLanguage', 'fr');
+            });
+
+            $('.radio .btnEnglish').on('click', function () {
+                radio.switcher('setLanguage', 'en');
+            });
+
+            $('.radio .btnGetCheck').on('click', function () {
+                radio.switcher('getValue', function (value) {
+//                    get value on radio doesn't work for now
+                    alert('checked value: ' + value);
+                });
+            });
+
+            $('.radio .btnGetDisable').on('click', function () {
+                radio.eq(0).switcher('getDisabled', function (value) {
+                    alert('disabled value: ' + value);
+                });
+            });
+
+            $('.radio .btnGetLanguage').on('click', function () {
+                radio.eq(0).switcher('getLanguage', function (value) {
+                    alert('language value: ' + value);
+                });
+            });
         });
     </script>
 </body>
