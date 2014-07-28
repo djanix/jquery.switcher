@@ -29,11 +29,11 @@
       </header>
       <section>
         <h1>
-<a name="jqueryswitcher-v112" class="anchor" href="#jqueryswitcher-v112"><span class="octicon octicon-link"></span></a>jquery.switcher v1.1.2</h1>
+<a name="jqueryswitcher-v120" class="anchor" href="#jqueryswitcher-v120"><span class="octicon octicon-link"></span></a>jquery.switcher v1.2.0</h1>
 
 <p>Custom checkbox / radio button in jquery</p>
 
-<p>see live example <a href="https://cdn.rawgit.com/djanix/jquery.switcher/6537d5219f5be1144440fe0d79c9cac58cf5dfe5/index.html">here</a></p>
+<p>see live example <a href="https://cdn.rawgit.com/djanix/jquery.switcher/master/index.html">here</a></p>
 
 <h3>
 <a name="how-to-get-it" class="anchor" href="#how-to-get-it"><span class="octicon octicon-link"></span></a>How to get it</h3>
@@ -76,9 +76,9 @@
 </tr></thead>
 <tbody>
 <tr>
-<td>class</td>
-<td>'switcher'</td>
-<td>class added to the html element. Useful if you want to customize it with css</td>
+<td>style</td>
+<td>'default'</td>
+<td>class added to the html element to change the input visual. Right now there's only 'default' and 'short'</td>
 </tr>
 <tr>
 <td>selected</td>
@@ -105,7 +105,7 @@
 <a name="you-can-change-the-parameters-in-the-javascript-when-instantiating-the-plugin" class="anchor" href="#you-can-change-the-parameters-in-the-javascript-when-instantiating-the-plugin"><span class="octicon octicon-link"></span></a>You can change the parameters in the javascript when instantiating the plugin</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">switcherEl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'input'</span><span class="p">).</span><span class="nx">switcher</span><span class="p">({</span>
-    <span class="kr">class</span><span class="o">:</span> <span class="s2">"switcher"</span><span class="p">,</span>
+    <span class="nx">style</span><span class="o">:</span> <span class="s2">"default"</span><span class="p">,</span>
     <span class="nx">selected</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nx">language</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
     <span class="nx">disabled</span><span class="o">:</span> <span class="kc">false</span>
@@ -116,7 +116,7 @@
 <a name="you-can-also-change-it-in-the-html" class="anchor" href="#you-can-also-change-it-in-the-html"><span class="octicon octicon-link"></span></a>You can also change it in the html</h4>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"switchName"</span> <span class="na">value=</span><span class="s">"switchValue"</span>
-    <span class="na">data-class=</span><span class="s">"switcher"</span>
+    <span class="na">data-style=</span><span class="s">"default"</span>
     <span class="na">data-selected=</span><span class="s">"false"</span>
     <span class="na">data-language=</span><span class="s">"en"</span>
     <span class="na">data-disabled=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
@@ -132,25 +132,9 @@
 </pre></div>
 
 <h4>
-<a name="get-value" class="anchor" href="#get-value"><span class="octicon octicon-link"></span></a>Get value</h4>
-
-<div class="highlight highlight-javascript"><pre><span class="nx">switcherEl</span><span class="p">.</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'getValue'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">switcherValue</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-<span class="p">});</span>
-</pre></div>
-
-<h4>
 <a name="set-disabled" class="anchor" href="#set-disabled"><span class="octicon octicon-link"></span></a>Set disabled</h4>
 
 <div class="highlight highlight-javascript"><pre><span class="nx">switcherEl</span><span class="p">.</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'setDisabled'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-</pre></div>
-
-<h4>
-<a name="get-disabled" class="anchor" href="#get-disabled"><span class="octicon octicon-link"></span></a>Get disabled</h4>
-
-<div class="highlight highlight-javascript"><pre><span class="nx">switcherEl</span><span class="p">.</span><span class="nx">switcher</span><span class="p">(</span><span class="s1">'getDisabled'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">disabled</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">disabledValue</span> <span class="o">=</span> <span class="nx">disabled</span><span class="p">;</span>
-<span class="p">});</span>
 </pre></div>
 
 <h4>
