@@ -43,8 +43,12 @@
 
         .checkbox,
         .radio  {
-            display: inline-block;
+            vertical-align: top;
             width: 45%;
+
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
         }
 
         button {
@@ -75,11 +79,7 @@
         <button class="btnFrench">french</button>
         <button class="btnEnglish">english</button>
         <br/>
-
-        <h4>Get values:</h4>
-        <button class="btnGetCheck">checked</button>
-        <button class="btnGetDisable">disabled</button>
-        <button class="btnGetLanguage">language</button>
+        <button class="btnGetLanguage">get lang</button>
     </div>
 
     <div class="radio">
@@ -99,11 +99,7 @@
         <button class="btnFrench">french</button>
         <button class="btnEnglish">english</button>
         <br/>
-
-        <h4>Get values:</h4>
-        <button class="btnGetCheck">checked</button>
-        <button class="btnGetDisable">disabled</button>
-        <button class="btnGetLanguage">language</button>
+        <button class="btnGetLanguage">get lang</button>
     </div>
 </div>
 
@@ -112,14 +108,24 @@
 
     <div class="checkbox">
         <h3>Checkbox</h3>
-        <input type="checkbox" name="switchCheck2" value="switchCheck2" />
+        <label>
+            <input type="checkbox" name="switchCheck2" value="switchCheck2" /> checkbox example
+        </label>
     </div>
 
     <div class="radio">
         <h3>Radio</h3>
-        <input type="radio" name="switchRadio2" value="one">
-        <input type="radio" name="switchRadio2" value="two">
-        <input type="radio" name="switchRadio2" value="three">
+        <label>
+            <input type="radio" name="switchRadio2" value="one"> radio example 1
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="switchRadio2" value="two"> radio example 2
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="switchRadio2" value="three"> radio example 3
+        </label>
     </div>
 </div>
 
@@ -128,7 +134,11 @@
 
 <script type="text/javascript">
     $(function () {
-        var switcher = $('input').switcher();
+        var switcher1 = $('.style1 input').switcher();
+        var switcher2 = $('.style2 input').switcher({
+            style: 'short'
+        });
+
 
         var checkbox = $('[name="switchCheck1"]');
         $('.checkbox .btnCheck').on('click', function () {
@@ -153,18 +163,6 @@
 
         $('.checkbox .btnEnglish').on('click', function () {
             checkbox.switcher('setLanguage', 'en');
-        });
-
-        $('.checkbox .btnGetCheck').on('click', function () {
-            checkbox.switcher('getValue', function (value) {
-                alert('checked value: ' + value);
-            });
-        });
-
-        $('.checkbox .btnGetDisable').on('click', function () {
-            checkbox.switcher('getDisabled', function (value) {
-                alert('disabled value: ' + value);
-            });
         });
 
         $('.checkbox .btnGetLanguage').on('click', function () {
@@ -201,19 +199,6 @@
 
         $('.radio .btnEnglish').on('click', function () {
             radio.switcher('setLanguage', 'en');
-        });
-
-        $('.radio .btnGetCheck').on('click', function () {
-            radio.switcher('getValue', function (value) {
-//                    get value on radio doesn't work for now
-                alert('checked value: ' + value);
-            });
-        });
-
-        $('.radio .btnGetDisable').on('click', function () {
-            radio.eq(0).switcher('getDisabled', function (value) {
-                alert('disabled value: ' + value);
-            });
         });
 
         $('.radio .btnGetLanguage').on('click', function () {

@@ -1,4 +1,4 @@
-jquery.switcher v1.1.2
+jquery.switcher v1.2.0
 ===============
 
 Custom checkbox / radio button in jquery
@@ -34,19 +34,19 @@ $(function () {
 
 ### Params
 
-| Param         | Default value | Info                                                                                          |
-| ------------- | ------------- | ----------------------------------------------------------------------------------------------|
-| class         | 'switcher'    | class added to the html element. Useful if you want to customize it with css                  |
-| selected      | false         | if the input is checked or not. If nothing is specified, it will take the input checked value |
-| language      | 'en'          | default language used for the yes/no texts                                                    |
-| disabled      | false         | if the input is disabled                                                                      |
-| copy          | {obj}         | json object with all the languages. By default, it only contain fr/en                         |
+| Param         | Default value | Info                                                                                                     |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------|
+| style         | 'default'     | class added to the html element to change the input visual. Right now there's only 'default' and 'short' |
+| selected      | false         | if the input is checked or not. If nothing is specified, it will take the input checked value            |
+| language      | 'en'          | default language used for the yes/no texts                                                               |
+| disabled      | false         | if the input is disabled                                                                                 |
+| copy          | {obj}         | json object with all the languages. By default, it only contain fr/en                                    |
 
 #### You can change the parameters in the javascript when instantiating the plugin
 
 ```javascript
 var switcherEl = $('input').switcher({
-    class: "switcher",
+    style: "default",
     selected: false,
     language: "en",
     disabled: false
@@ -57,7 +57,7 @@ var switcherEl = $('input').switcher({
 
 ```html
 <input type="checkbox" name="switchName" value="switchValue"
-    data-class="switcher"
+    data-style="default"
     data-selected="false"
     data-language="en"
     data-disabled="false" />
@@ -70,23 +70,9 @@ var switcherEl = $('input').switcher({
 switcherEl.switcher('setValue', true);
 ```
 
-#### Get value
-```javascript
-switcherEl.switcher('getValue', function (value) {
-  var switcherValue = val;
-});
-```
-
 #### Set disabled
 ```javascript
 switcherEl.switcher('setDisabled', true);
-```
-
-#### Get disabled
-```javascript
-switcherEl.switcher('getDisabled', function (disabled) {
-  var disabledValue = disabled;
-});
 ```
 
 #### Set language

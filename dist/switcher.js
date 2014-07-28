@@ -7,7 +7,7 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.1.2
+/* jquery.switcher - 1.2.0
  * Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
@@ -17,7 +17,8 @@
         class: "switcher",
         selected: null,
         language: "en",
-        disabled: false,
+        disabled: null,
+        style: "default",
         copy: {
             en: {
                 yes: 'yes',
@@ -49,7 +50,7 @@
             var self = this;
             var $input = $(input);
 
-            $input.wrap('<div class="' + settings.class + '"></div>');
+            $input.wrap('<div class="' + settings.class + ' ' + settings.style + '"></div>');
             $input.after(
                 '<div class="content clearfix">' +
                     '<div class="slider"></div>' +
@@ -70,13 +71,17 @@
             var $container = $(container);
             var $input =  $container.find('input');
 
-            $container.on('click', function () {
+            $container.on('click', function (e) {
                 if (settings.disabled) { return; }
 
                 if ($input.attr('type') == 'radio') {
                     self.setValue(true);
                 } else {
-                    self.setValue(!$input.prop("checked"));
+                    if ($(e.target).is('input')) {
+                        self.setValue($input.prop("checked"));
+                    } else {
+                        self.setValue(!$input.prop("checked"));
+                    }
                 }
             });
 
@@ -132,18 +137,22 @@
             }
         },
 
-        getValue: function (callback) {
-            var self = this;
-            return callback(self.settings.selected);
-        },
-
         setDisabled: function (val) {
+            var self = this;
+            var $input = $(self.input);
+            var $container = $(self.container);
+
+            if (val == null) {
+                if ($input.attr('disabled')) {
+                    val = true;
+                } else {
+                    val = false;
+                }
+            }
+
             if (typeof val != 'boolean') {
                 return console.log('The parameter need to be true or false as a boolean');
             }
-
-            var self = this;
-            var $container = $(self.container);
 
             self.settings.disabled = val;
 
@@ -152,11 +161,6 @@
             } else {
                 $container.removeClass('is-disabled');
             }
-        },
-
-        getDisabled: function (callback) {
-            var self = this;
-            return callback(self.settings.disabled);
         },
 
         setLanguage: function (language) {

@@ -1,26 +1,16 @@
-$colorActive: #519b20;
-$colorSecondary: #fff;
-$colorBorder: #dfdfdf;
 $disabledOpacity: 0.4;
 $fontSize: 12px;
 $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 
 .switcher {
-    background-color: $colorSecondary;
-    border: 1px solid $colorBorder;
-    border-radius: 4px;
-    display: inline-block;
+    cursor: pointer;
     font-family: $fontFamily;
     font-size: $fontSize;
-    line-height: 26px;
-    padding: 2px;
     text-transform: uppercase;
-    transition: background-color 0.3s;
-    min-width: 80px;
 
-    input {
-        display: none;
-    }
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
 
     .content {
         position: relative;
@@ -28,11 +18,40 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     .text {
-        cursor: default;
+        display: none;
         overflow: hidden;
         text-align: center;
         white-space: nowrap;
+    }
+
+    &.is-disabled {
+        opacity: $disabledOpacity;
+    }
+}
+
+.switcher.default {
+    $colorActive: #519b20;
+    $colorSecondary: #fff;
+    $colorBorder: #dfdfdf;
+
+    background-color: $colorSecondary;
+    border: 1px solid $colorBorder;
+    border-radius: 4px;
+    line-height: 26px;
+    min-width: 80px;
+    padding: 2px;
+    transition: background-color 0.3s;
+
+    input {
+        display: none;
+    }
+
+    .text {
         width: 50%;
+
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
     }
 
     .textYes {
@@ -43,6 +62,14 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     .textNo {
         color: darken($colorBorder, 25%);
         float: right;
+    }
+
+    &.is-active {
+        background-color: $colorActive;
+
+        .slider {
+            transform: translateX(100%);
+        }
     }
 
     .slider {
@@ -58,16 +85,37 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
         width: 50%;
         z-index: 2;
     }
+}
 
-    &.is-active {
-        background-color: $colorActive;
+.switcher.short {
+    $colorActive: #519b20;
+    $colorSecondary: #BF1111;
+    $colorBorder: #dfdfdf;
 
-        .slider {
-            transform: translateX(100%);
+    border: 1px solid $colorBorder;
+    border-radius: 50%;
+    margin-bottom: -3px;
+    padding: 1px;
+
+    input {
+        display: none;
+    }
+
+    .slider {
+        background-color: $colorSecondary;
+        border-radius: 50%;
+        height: 15px;
+        transition: background-color 0.3s;
+        width: 15px;
+
+        &:after {
+            color: #fff;
         }
     }
 
-    &.is-disabled {
-        opacity: $disabledOpacity;
+    &.is-active {
+        .slider {
+            background-color: $colorActive;
+        }
     }
 }
