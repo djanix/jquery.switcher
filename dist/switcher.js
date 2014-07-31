@@ -7,7 +7,7 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.2.0
+/* jquery.switcher - 1.2.1
  * Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
@@ -77,7 +77,7 @@
                 if ($input.attr('type') == 'radio') {
                     self.setValue(true);
                 } else {
-                    if ($(e.target).is('input')) {
+                    if ($container.closest('label').length) {
                         self.setValue($input.prop("checked"));
                     } else {
                         self.setValue(!$input.prop("checked"));
