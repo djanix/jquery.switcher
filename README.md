@@ -3,7 +3,7 @@ jquery.switcher v1.2.2
 
 Custom checkbox / radio button in jquery
 
-see live example [here](https://cdn.rawgit.com/djanix/jquery.switcher/master/index.html)
+see live example [here](https://rawgit.com/djanix/jquery.switcher/master/index.html)
 
 ### How to get it
 
