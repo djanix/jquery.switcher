@@ -1,4 +1,4 @@
-jquery.switcher v1.2.1
+jquery.switcher v1.2.2
 ===============
 
 Custom checkbox / radio button in jquery
@@ -13,6 +13,8 @@ or
 
     bower install jquery.switcher
 
+### Browser support
+    Firefox, Chrome, Safari, iOS, Android, IE9+
 
 ### What to include in your html
 ```html

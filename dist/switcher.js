@@ -7,8 +7,8 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.2.1
- * Copyright (c) 2014-07-11 Janic Beauchemin - https://github.com/djanix/ */
+/* jquery.switcher - 1.2.2
+ * Copyright (c) 2014-08-19 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
     var pluginName = "switcher";

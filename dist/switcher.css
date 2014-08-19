@@ -1,5 +1,5 @@
-/* jquery.switcher - 1.2.1
-* Copyright (c) 2014-07-31 Janic Beauchemin - https://github.com/djanix/ */
+/* jquery.switcher - 1.2.2
+* Copyright (c) 2014-08-19 Janic Beauchemin - https://github.com/djanix/ */
 
 
 .switcher {
@@ -41,6 +41,23 @@
 .switcher.default input {
   display: none;
 }
+.switcher.default .slider {
+  background-color: white;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 2px 1px #dfdfdf;
+  box-shadow: 0 0 2px 1px #dfdfdf;
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  width: 50%;
+  z-index: 2;
+}
 .switcher.default .text {
   width: 50%;
   display: inline-block;
@@ -63,44 +80,39 @@
   -ms-transform: translateX(100%);
   transform: translateX(100%);
 }
-.switcher.default .slider {
-  background-color: white;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 0 2px 1px #dfdfdf;
-  box-shadow: 0 0 2px 1px #dfdfdf;
-  height: 26px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  transform: translateX(0%);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  width: 50%;
-  z-index: 2;
-}
 
 .switcher.short {
-  border: 1px solid #dfdfdf;
-  border-radius: 50%;
-  margin-bottom: -3px;
-  padding: 1px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 .switcher.short input {
   display: none;
 }
-.switcher.short .slider {
-  background-color: #bf1111;
+.switcher.short .content {
+  border: 1px solid #aaaaaa;
   border-radius: 50%;
-  height: 15px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  width: 15px;
+  height: 18px;
+  padding: 0;
+  width: 18px;
 }
-.switcher.short .slider:after {
-  color: #fff;
+.switcher.short .slider {
+  background-color: #519b20;
+  border-radius: 50%;
+  height: 12px;
+  margin: 3px;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  width: 12px;
 }
 .switcher.short.is-active .slider {
-  background-color: #519b20;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }

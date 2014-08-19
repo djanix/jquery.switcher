@@ -46,6 +46,20 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
         display: none;
     }
 
+    .slider {
+        background-color: $colorSecondary;
+        border-radius: 4px;
+        box-shadow: 0 0 2px 1px $colorBorder;
+        height: 26px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateX(0%);
+        transition: transform 0.3s;
+        width: 50%;
+        z-index: 2;
+    }
+
     .text {
         width: 50%;
 
@@ -71,51 +85,44 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
             transform: translateX(100%);
         }
     }
-
-    .slider {
-        background-color: $colorSecondary;
-        border-radius: 4px;
-        box-shadow: 0 0 2px 1px $colorBorder;
-        height: 26px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        transform: translateX(0%);
-        transition: transform 0.3s;
-        width: 50%;
-        z-index: 2;
-    }
 }
 
 .switcher.short {
     $colorActive: #519b20;
-    $colorSecondary: #BF1111;
-    $colorBorder: #dfdfdf;
+    $colorBorder: #aaa;
 
-    border: 1px solid $colorBorder;
-    border-radius: 50%;
-    margin-bottom: -3px;
-    padding: 1px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
 
     input {
         display: none;
     }
 
-    .slider {
-        background-color: $colorSecondary;
+    .content {
+        border: 1px solid $colorBorder;
         border-radius: 50%;
-        height: 15px;
-        transition: background-color 0.3s;
-        width: 15px;
+        height: 18px;
+        padding: 0;
+        width: 18px;
+    }
 
-        &:after {
-            color: #fff;
-        }
+    .slider {
+        background-color: $colorActive;
+        border-radius: 50%;
+        height: 12px;
+        margin: 3px;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.2s;
+        width: 12px;
     }
 
     &.is-active {
         .slider {
-            background-color: $colorActive;
+            opacity: 1;
+            transform: scale(1);
         }
     }
 }

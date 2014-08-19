@@ -1,6 +1,6 @@
 {
   "name": "jquery.switcher",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "homepage": "",
   "author": {
@@ -9,12 +9,12 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-contrib-jshint": "^0.10.0",
     "grunt-autoprefixer": "^0.7.3",
-    "matchdep": "^0.3.0",
-    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-sass": "~0.7.3",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "matchdep": "^0.3.0"
   }
 }
