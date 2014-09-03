@@ -1,16 +1,7 @@
-/*
- *  jQuery Boilerplate - v3.3.4
- *  A jump-start for jQuery plugins development.
- *  http://jqueryboilerplate.com
- *
- *  Made by Zeno Rocha
- *  Under MIT License
- */
-
 /* jquery.switcher - 1.2.3
- * Copyright (c) 2014-08-19 Janic Beauchemin - https://github.com/djanix/ */
+ * Copyright (c) 2014-09-03 Janic Beauchemin - https://github.com/djanix/ */
 
- ;(function ($, window, document, undefined) {
+ ;(function ($, undefined) {
     var pluginName = "switcher";
 
     var defaults = {
@@ -262,4 +253,4 @@
     });
 //  END SWIPE EVENTS
 //  -----------------------------------------------------------------------
-})($, window, document);
+})($);
