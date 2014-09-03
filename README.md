@@ -1,4 +1,4 @@
-jquery.switcher v1.2.1
+jquery.switcher v1.2.0
 ===============
 
 Custom checkbox / radio button in jquery
