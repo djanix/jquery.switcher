@@ -7,7 +7,7 @@
  *  Under MIT License
  */
 
-/* jquery.switcher - 1.2.2
+/* jquery.switcher - 1.2.3
  * Copyright (c) 2014-08-19 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, window, document, undefined) {
@@ -101,7 +101,7 @@
             var $input = $(self.input);
             var $container = $(self.container);
 
-            if (val == null) {
+            if (val === null) {
                 if ($input.attr('type') == 'radio') {
                     val = typeof $input.filter(':checked').val()!=='undefined';
                 } else {
@@ -142,7 +142,7 @@
             var $input = $(self.input);
             var $container = $(self.container);
 
-            if (val == null) {
+            if (val === null) {
                 if ($input.attr('disabled')) {
                     val = true;
                 } else {
@@ -227,9 +227,9 @@
             var direction = null;
 
             if(Math.abs(dx) >= threshold) {
-                direction = dx > 0 ? 'left' : 'right'
+                direction = dx > 0 ? 'left' : 'right';
             } else if (Math.abs(dy) >= threshold) {
-                direction = dy > 0 ? 'down' : 'up'
+                direction = dy > 0 ? 'down' : 'up';
             }
 
             if(direction) {
@@ -262,4 +262,4 @@
     });
 //  END SWIPE EVENTS
 //  -----------------------------------------------------------------------
-})(jQuery, window, document);
+})($, window, document);
