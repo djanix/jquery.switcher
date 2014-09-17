@@ -1,7 +1,7 @@
 {
   "name": "jquery.switcher",
-  "version": "1.2.3",
-  "description": "jquery.switcher v1.2.3\r ===============",
+  "version": "1.2.4",
+  "description": "jquery.switcher v1.2.4\r ===============",
   "homepage": "https://github.com/djanix/jquery-switcher",
   "author": "Janic Beauchemin (https://github.com/djanix/)",
   "devDependencies": {

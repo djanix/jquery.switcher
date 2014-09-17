@@ -1,11 +1,11 @@
-/* jquery.switcher - 1.2.3
+/* jquery.switcher - 1.2.4
  * Copyright (c) 2014-09-03 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, undefined) {
     var pluginName = "switcher";
 
     var defaults = {
-        class: "switcher",
+        className: "switcher",
         selected: null,
         language: "en",
         disabled: null,
@@ -41,7 +41,7 @@
             var self = this;
             var $input = $(input);
 
-            $input.wrap('<div class="' + settings.class + ' ' + settings.style + '"></div>');
+            $input.wrap('<div class="' + settings.className + ' ' + settings.style + '"></div>');
             $input.after(
                 '<div class="content clearfix">' +
                     '<div class="slider"></div>' +
@@ -50,7 +50,7 @@
                 '</div>'
             );
 
-            this.container = $($input).parent('.' + settings.class)[0];
+            this.container = $($input).parent('.' + settings.className)[0];
 
             self.setLanguage(settings.language);
             self.setValue(settings.selected);
@@ -110,7 +110,7 @@
             if ($input.attr('type') == 'radio') {
                 var name = $input.attr('name');
                 var $inputGroup = $('input[name="' + name + '"]');
-                var $containerGroup = $inputGroup.parent('.' + self.settings.class);
+                var $containerGroup = $inputGroup.parent('.' + self.settings.className);
 
                 if (val === true) {
                     $containerGroup.removeClass('is-active');

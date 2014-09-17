@@ -1,5 +1,6 @@
-/* jquery.switcher - 1.2.3
-* Copyright (c) 2014-09-03 Janic Beauchemin - https://github.com/djanix/ */
+/* jquery.switcher - 1.2.4
+* https://github.com/djanix/jquery-switcher
+* Copyright (c) 2014-09-17  -  */
 
 
 .switcher {
@@ -29,7 +30,7 @@
 }
 
 .switcher.default {
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #dfdfdf;
   border-radius: 4px;
   line-height: 26px;
@@ -42,9 +43,8 @@
   display: none;
 }
 .switcher.default .slider {
-  background-color: white;
+  background-color: #fff;
   border-radius: 4px;
-  -webkit-box-shadow: 0 0 2px 1px #dfdfdf;
   box-shadow: 0 0 2px 1px #dfdfdf;
   height: 26px;
   left: 0;
@@ -65,7 +65,7 @@
   *zoom: 1;
 }
 .switcher.default .textYes {
-  color: white;
+  color: #fff;
   float: left;
 }
 .switcher.default .textNo {
@@ -91,7 +91,7 @@
   display: none;
 }
 .switcher.short .content {
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
   border-radius: 50%;
   height: 18px;
   padding: 0;
@@ -116,3 +116,5 @@
   -ms-transform: scale(1);
   transform: scale(1);
 }
+
+/*# sourceMappingURL=switcher.css.map */
