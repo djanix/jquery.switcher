@@ -1,5 +1,5 @@
 /* jquery.switcher - 1.2.4
- * Copyright (c) 2014-09-03 Janic Beauchemin - https://github.com/djanix/ */
+ * Copyright (c) 2014-11-04 Janic Beauchemin - https://github.com/djanix/ */
 
  ;(function ($, undefined) {
     var pluginName = "switcher";
