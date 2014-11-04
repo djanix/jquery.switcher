@@ -105,7 +105,7 @@
             }
 
             self.settings.selected = val;
-            $input.prop("checked", val);
+            $input.prop("checked", val).trigger('change');
 
             if ($input.attr('type') == 'radio') {
                 var name = $input.attr('name');
