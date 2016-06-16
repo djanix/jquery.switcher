@@ -1,11 +1,17 @@
-$disabledOpacity: 0.4;
-$fontSize: 12px;
-$fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+$switcherDisabledOpacity: 0.4 !default;
+$switcherFontSize: 12px !default;
+$switcherFontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !default;
+$switcherDefaultColorActive: #519b20 !default;
+$switcherDefaultColorSecondary: #fff !default;
+$switcherDefaultColorBorder: #dfdfdf !default;
+$switcherShortColorActive: #519b20 !default;
+$switcherShortColorBorder: #aaa !default;
+
 
 .switcher {
     cursor: pointer;
-    font-family: $fontFamily;
-    font-size: $fontSize;
+    font-family: $switcherFontFamily;
+    font-size: $switcherFontSize;
     text-transform: uppercase;
 
     display: inline-block;
@@ -25,17 +31,13 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     &.is-disabled {
-        opacity: $disabledOpacity;
+        opacity: $switcherDisabledOpacity;
     }
 }
 
 .switcher.default {
-    $colorActive: #519b20;
-    $colorSecondary: #fff;
-    $colorBorder: #dfdfdf;
-
-    background-color: $colorSecondary;
-    border: 1px solid $colorBorder;
+    background-color: $switcherDefaultColorSecondary;
+    border: 1px solid $switcherDefaultColorBorder;
     border-radius: 4px;
     line-height: 26px;
     min-width: 80px;
@@ -47,9 +49,9 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     .slider {
-        background-color: $colorSecondary;
+        background-color: $switcherDefaultColorSecondary;
         border-radius: 4px;
-        box-shadow: 0 0 2px 1px $colorBorder;
+        box-shadow: 0 0 2px 1px $switcherDefaultColorBorder;
         height: 26px;
         left: 0;
         position: absolute;
@@ -69,17 +71,17 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     .textYes {
-        color: $colorSecondary;
+        color: $switcherDefaultColorSecondary;
         float: left;
     }
 
     .textNo {
-        color: darken($colorBorder, 25%);
+        color: darken($switcherDefaultColorBorder, 25%);
         float: right;
     }
 
     &.is-active {
-        background-color: $colorActive;
+        background-color: $switcherDefaultColorActive;
 
         .slider {
             transform: translateX(100%);
@@ -88,9 +90,6 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
 
 .switcher.short {
-    $colorActive: #519b20;
-    $colorBorder: #aaa;
-
     cursor: pointer;
     display: inline-block;
     margin-right: 5px;
@@ -101,7 +100,7 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     .content {
-        border: 1px solid $colorBorder;
+        border: 1px solid $switcherShortColorBorder;
         border-radius: 50%;
         height: 18px;
         padding: 0;
@@ -109,7 +108,7 @@ $fontFamily: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     }
 
     .slider {
-        background-color: $colorActive;
+        background-color: $switcherShortColorActive;
         border-radius: 50%;
         height: 12px;
         margin: 3px;
